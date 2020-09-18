@@ -14,7 +14,7 @@ public class WorkerController {
     private WorkerService workerService;
 
     @RequestMapping(value = "wrk/log",method = RequestMethod.GET)
-    public int wrkLogin(@RequestParam("name")String name, @RequestParam("password")String password){
+    public String wrkLogin(@RequestParam("name")String name, @RequestParam("password")String password){
         return workerService.workerLogin(name, password);
     }
 
@@ -61,5 +61,10 @@ public class WorkerController {
     @RequestMapping(value = "wrk/takeorder/{oid}",method = RequestMethod.PUT)
     public int takeOrder(@PathVariable("oid")int oid) throws Exception {
         return workerService.takeOrder(oid);
+    }
+
+    @RequestMapping(value = "wrk/canteen/{cid}",method = RequestMethod.GET)
+    public List<WorkerViewEntity> showWindows(@PathVariable("cid")int cid){
+        return workerService.getWindowByCanteen(cid);
     }
 }

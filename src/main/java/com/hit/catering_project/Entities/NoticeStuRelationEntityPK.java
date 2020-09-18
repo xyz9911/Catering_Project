@@ -8,7 +8,7 @@ public class NoticeStuRelationEntityPK implements Serializable {
     private int nid;
     private int sid;
 
-    @Column(name = "NID", nullable = false)
+    @Column(name = "NID")
     @Id
     public int getNid() {
         return nid;
@@ -18,7 +18,7 @@ public class NoticeStuRelationEntityPK implements Serializable {
         this.nid = nid;
     }
 
-    @Column(name = "SID", nullable = false)
+    @Column(name = "SID")
     @Id
     public int getSid() {
         return sid;

@@ -11,7 +11,7 @@ public class NoticeStuRelationEntity {
     private byte isread;
 
     @Id
-    @Column(name = "NID", nullable = false)
+    @Column(name = "NID")
     public int getNid() {
         return nid;
     }
@@ -21,7 +21,7 @@ public class NoticeStuRelationEntity {
     }
 
     @Id
-    @Column(name = "SID", nullable = false)
+    @Column(name = "SID")
     public int getSid() {
         return sid;
     }
@@ -31,7 +31,7 @@ public class NoticeStuRelationEntity {
     }
 
     @Basic
-    @Column(name = "ISREAD", nullable = false)
+    @Column(name = "ISREAD")
     public byte getIsread() {
         return isread;
     }

@@ -3,6 +3,8 @@ package com.hit.catering_project.Controller;
 import com.hit.catering_project.Entities.*;
 import com.hit.catering_project.Request.OrderDish;
 import com.hit.catering_project.Service.StudentService;
+import com.hit.catering_project.Show.DishViewInfo;
+import com.hit.catering_project.Show.ShoppingCarInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +15,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
     @RequestMapping(value = "stu/log",method = RequestMethod.GET)
-    public int stuLogin(@RequestParam("name")String name,@RequestParam("password")String password){
+    public String stuLogin(@RequestParam("name")String name,@RequestParam("password")String password){
         return studentService.stuLogin(name,password);
     }
 
@@ -82,5 +84,35 @@ public class StudentController {
         Byte rate1=Byte.parseByte(wrate);
         Byte rate2=Byte.parseByte(rrate);
         return studentService.commentOrder(oid,rate1,rate2);
+    }
+
+    @RequestMapping(value = "stu/canteen",method = RequestMethod.GET)
+    public List<CanteenEntity> showAllCanteens(){
+        return studentService.findAllCanteens();
+    }
+
+    @RequestMapping(value = "stu/canteen/{cid}",method = RequestMethod.GET)
+    public CanteenEntity showCanteen(@PathVariable("cid")int cid){
+        return studentService.findCanteenById(cid);
+    }
+
+    @RequestMapping(value = "stu/canteen/shoppingcar",method = RequestMethod.GET)
+    public ShoppingCarInfo showShoppingCar(@RequestParam("sid")int sid,@RequestParam("cid")int cid){
+        return studentService.getShoppingCarInfo(sid, cid);
+    }
+
+    @RequestMapping(value = "stu/canteen/shoppingcar/delete",method = RequestMethod.GET)
+    public int deleteShoppingCarGoods(@RequestParam("sid")int sid,@RequestParam("did")int did){
+        return studentService.deleteShoppingGoods(sid,did);
+    }
+
+    @RequestMapping(value = "stu/canteen/shoppingcar/add",method = RequestMethod.GET)
+    public int insertShoppingCarGoods(@RequestParam("sid")int sid,@RequestParam("did")int did){
+        return studentService.addShoppingGoods(sid,did);
+    }
+
+    @RequestMapping(value = "stu/dish/info/{did}",method = RequestMethod.GET)
+    public DishViewInfo showDishInfo(@PathVariable("did")int did){
+        return studentService.getDishDetail(did);
     }
 }

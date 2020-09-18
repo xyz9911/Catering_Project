@@ -10,7 +10,7 @@ public class CommentEntity {
     private byte conrider;
 
     @Id
-    @Column(name = "OID", nullable = false)
+    @Column(name = "OID")
     public int getOid() {
         return oid;
     }
@@ -20,7 +20,7 @@ public class CommentEntity {
     }
 
     @Basic
-    @Column(name = "CONWINDOW", nullable = false)
+    @Column(name = "CONWINDOW")
     public byte getConwindow() {
         return conwindow;
     }
@@ -30,7 +30,7 @@ public class CommentEntity {
     }
 
     @Basic
-    @Column(name = "CONRIDER", nullable = false)
+    @Column(name = "CONRIDER")
     public byte getConrider() {
         return conrider;
     }

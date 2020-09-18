@@ -11,7 +11,7 @@ public class OrderDishRelationEntity {
     private int servings;
 
     @Id
-    @Column(name = "OID", nullable = false)
+    @Column(name = "OID")
     public int getOid() {
         return oid;
     }
@@ -21,7 +21,7 @@ public class OrderDishRelationEntity {
     }
 
     @Id
-    @Column(name = "DID", nullable = false)
+    @Column(name = "DID")
     public int getDid() {
         return did;
     }
@@ -31,7 +31,7 @@ public class OrderDishRelationEntity {
     }
 
     @Basic
-    @Column(name = "SERVINGS", nullable = false)
+    @Column(name = "SERVINGS")
     public int getServings() {
         return servings;
     }

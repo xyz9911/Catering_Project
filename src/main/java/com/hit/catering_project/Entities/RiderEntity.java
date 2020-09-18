@@ -13,7 +13,7 @@ public class RiderEntity {
     private byte isdelete;
 
     @Id
-    @Column(name = "RID", nullable = false)
+    @Column(name = "RID")
     public int getRid() {
         return rid;
     }
@@ -23,7 +23,7 @@ public class RiderEntity {
     }
 
     @Basic
-    @Column(name = "RNAME", nullable = false, length = 255)
+    @Column(name = "RNAME")
     public String getRname() {
         return rname;
     }
@@ -33,7 +33,7 @@ public class RiderEntity {
     }
 
     @Basic
-    @Column(name = "RPASSWORD", nullable = false, length = 255)
+    @Column(name = "RPASSWORD")
     public String getRpassword() {
         return rpassword;
     }
@@ -43,7 +43,7 @@ public class RiderEntity {
     }
 
     @Basic
-    @Column(name = "RCONTACT", nullable = false, length = 255)
+    @Column(name = "RCONTACT")
     public String getRcontact() {
         return rcontact;
     }
@@ -53,7 +53,7 @@ public class RiderEntity {
     }
 
     @Basic
-    @Column(name = "RRATING", nullable = false)
+    @Column(name = "RRATING")
     public byte getRrating() {
         return rrating;
     }
@@ -63,7 +63,7 @@ public class RiderEntity {
     }
 
     @Basic
-    @Column(name = "ISDELETE", nullable = false)
+    @Column(name = "ISDELETE")
     public byte getIsdelete() {
         return isdelete;
     }

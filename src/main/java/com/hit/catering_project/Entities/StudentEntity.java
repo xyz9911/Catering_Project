@@ -15,7 +15,7 @@ public class StudentEntity {
     private byte isdelete;
 
     @Id
-    @Column(name = "SID", nullable = false)
+    @Column(name = "SID")
     public int getSid() {
         return sid;
     }
@@ -25,7 +25,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "SNAME", nullable = false, length = 255)
+    @Column(name = "SNAME")
     public String getSname() {
         return sname;
     }
@@ -35,7 +35,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "SPASSWORD", nullable = false, length = 255)
+    @Column(name = "SPASSWORD")
     public String getSpassword() {
         return spassword;
     }
@@ -45,7 +45,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "SBALANCE", nullable = false, precision = 2)
+    @Column(name = "SBALANCE")
     public BigDecimal getSbalance() {
         return sbalance;
     }
@@ -55,7 +55,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "SADDRESS", nullable = false, length = 255)
+    @Column(name = "SADDRESS")
     public String getSaddress() {
         return saddress;
     }
@@ -65,7 +65,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "SCONTACT", nullable = false, length = 255)
+    @Column(name = "SCONTACT")
     public String getScontact() {
         return scontact;
     }
@@ -75,7 +75,7 @@ public class StudentEntity {
     }
 
     @Basic
-    @Column(name = "ISDELETE", nullable = false)
+    @Column(name = "ISDELETE")
     public byte getIsdelete() {
         return isdelete;
     }

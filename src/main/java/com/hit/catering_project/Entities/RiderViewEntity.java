@@ -10,9 +10,9 @@ public class RiderViewEntity {
     private String rcontact;
     private byte rrating;
 
-    @Id
     @Basic
-    @Column(name = "RID", nullable = false)
+    @Id
+    @Column(name = "RID")
     public int getRid() {
         return rid;
     }
@@ -22,7 +22,7 @@ public class RiderViewEntity {
     }
 
     @Basic
-    @Column(name = "RNAME", nullable = false, length = 255)
+    @Column(name = "RNAME")
     public String getRname() {
         return rname;
     }
@@ -32,7 +32,7 @@ public class RiderViewEntity {
     }
 
     @Basic
-    @Column(name = "RCONTACT", nullable = false, length = 255)
+    @Column(name = "RCONTACT")
     public String getRcontact() {
         return rcontact;
     }
@@ -42,7 +42,7 @@ public class RiderViewEntity {
     }
 
     @Basic
-    @Column(name = "RRATING", nullable = false)
+    @Column(name = "RRATING")
     public byte getRrating() {
         return rrating;
     }

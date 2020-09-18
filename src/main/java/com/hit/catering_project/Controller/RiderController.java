@@ -15,7 +15,7 @@ public class RiderController {
     private RiderService riderService;
 
     @RequestMapping(value = "rider/log",method = RequestMethod.GET)
-    public int riderLogin(@RequestParam("name")String name, @RequestParam("password")String password){
+    public String riderLogin(@RequestParam("name")String name, @RequestParam("password")String password){
         return riderService.riderLogin(name, password);
     }
 

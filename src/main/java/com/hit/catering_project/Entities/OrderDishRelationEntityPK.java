@@ -8,7 +8,7 @@ public class OrderDishRelationEntityPK implements Serializable {
     private int oid;
     private int did;
 
-    @Column(name = "OID", nullable = false)
+    @Column(name = "OID")
     @Id
     public int getOid() {
         return oid;
@@ -18,7 +18,7 @@ public class OrderDishRelationEntityPK implements Serializable {
         this.oid = oid;
     }
 
-    @Column(name = "DID", nullable = false)
+    @Column(name = "DID")
     @Id
     public int getDid() {
         return did;

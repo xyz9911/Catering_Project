@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface WorkerViewDao extends JpaRepository<WorkerViewEntity,Long> {
     WorkerViewEntity findByWid(int wid);
+
+    List<WorkerViewEntity> findByCid(int cid);
 }

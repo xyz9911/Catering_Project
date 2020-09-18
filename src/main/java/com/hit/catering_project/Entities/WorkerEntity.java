@@ -13,9 +13,11 @@ public class WorkerEntity {
     private byte wrating;
     private BigDecimal wbalance;
     private byte isdelete;
+    private int cid;
+    private String openinghours;
 
     @Id
-    @Column(name = "WID", nullable = false)
+    @Column(name = "WID")
     public int getWid() {
         return wid;
     }
@@ -25,7 +27,7 @@ public class WorkerEntity {
     }
 
     @Basic
-    @Column(name = "WNAME", nullable = false, length = 255)
+    @Column(name = "WNAME")
     public String getWname() {
         return wname;
     }
@@ -35,7 +37,7 @@ public class WorkerEntity {
     }
 
     @Basic
-    @Column(name = "WPASSWORD", nullable = false, length = 255)
+    @Column(name = "WPASSWORD")
     public String getWpassword() {
         return wpassword;
     }
@@ -45,7 +47,7 @@ public class WorkerEntity {
     }
 
     @Basic
-    @Column(name = "WCONTACT", nullable = false, length = 255)
+    @Column(name = "WCONTACT")
     public String getWcontact() {
         return wcontact;
     }
@@ -55,7 +57,7 @@ public class WorkerEntity {
     }
 
     @Basic
-    @Column(name = "WRATING", nullable = false)
+    @Column(name = "WRATING")
     public byte getWrating() {
         return wrating;
     }
@@ -65,7 +67,7 @@ public class WorkerEntity {
     }
 
     @Basic
-    @Column(name = "WBALANCE", nullable = false, precision = 2)
+    @Column(name = "WBALANCE")
     public BigDecimal getWbalance() {
         return wbalance;
     }
@@ -75,13 +77,33 @@ public class WorkerEntity {
     }
 
     @Basic
-    @Column(name = "ISDELETE", nullable = false)
+    @Column(name = "ISDELETE")
     public byte getIsdelete() {
         return isdelete;
     }
 
     public void setIsdelete(byte isdelete) {
         this.isdelete = isdelete;
+    }
+
+    @Basic
+    @Column(name = "CID")
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    @Basic
+    @Column(name = "OPENINGHOURS")
+    public String getOpeninghours() {
+        return openinghours;
+    }
+
+    public void setOpeninghours(String openinghours) {
+        this.openinghours = openinghours;
     }
 
     @Override
@@ -94,10 +116,12 @@ public class WorkerEntity {
         if (wid != that.wid) return false;
         if (wrating != that.wrating) return false;
         if (isdelete != that.isdelete) return false;
+        if (cid != that.cid) return false;
         if (wname != null ? !wname.equals(that.wname) : that.wname != null) return false;
         if (wpassword != null ? !wpassword.equals(that.wpassword) : that.wpassword != null) return false;
         if (wcontact != null ? !wcontact.equals(that.wcontact) : that.wcontact != null) return false;
         if (wbalance != null ? !wbalance.equals(that.wbalance) : that.wbalance != null) return false;
+        if (openinghours != null ? !openinghours.equals(that.openinghours) : that.openinghours != null) return false;
 
         return true;
     }
@@ -111,6 +135,8 @@ public class WorkerEntity {
         result = 31 * result + (int) wrating;
         result = 31 * result + (wbalance != null ? wbalance.hashCode() : 0);
         result = 31 * result + (int) isdelete;
+        result = 31 * result + cid;
+        result = 31 * result + (openinghours != null ? openinghours.hashCode() : 0);
         return result;
     }
 }

@@ -13,9 +13,9 @@ public class DishViewEntity {
     private String wname;
     private int wid;
 
-    @Id
     @Basic
-    @Column(name = "DID", nullable = false)
+    @Id
+    @Column(name = "DID")
     public int getDid() {
         return did;
     }
@@ -25,7 +25,7 @@ public class DishViewEntity {
     }
 
     @Basic
-    @Column(name = "DNAME", nullable = false, length = 255)
+    @Column(name = "DNAME")
     public String getDname() {
         return dname;
     }
@@ -35,7 +35,7 @@ public class DishViewEntity {
     }
 
     @Basic
-    @Column(name = "DPRICE", nullable = false, precision = 2)
+    @Column(name = "DPRICE")
     public BigDecimal getDprice() {
         return dprice;
     }
@@ -45,7 +45,7 @@ public class DishViewEntity {
     }
 
     @Basic
-    @Column(name = "DAVAILABILITY", nullable = false)
+    @Column(name = "DAVAILABILITY")
     public byte getDavailability() {
         return davailability;
     }
@@ -55,13 +55,23 @@ public class DishViewEntity {
     }
 
     @Basic
-    @Column(name = "WNAME", nullable = false, length = 255)
+    @Column(name = "WNAME")
     public String getWname() {
         return wname;
     }
 
     public void setWname(String wname) {
         this.wname = wname;
+    }
+
+    @Basic
+    @Column(name = "WID")
+    public int getWid() {
+        return wid;
+    }
+
+    public void setWid(int wid) {
+        this.wid = wid;
     }
 
     @Override
@@ -73,6 +83,7 @@ public class DishViewEntity {
 
         if (did != that.did) return false;
         if (davailability != that.davailability) return false;
+        if (wid != that.wid) return false;
         if (dname != null ? !dname.equals(that.dname) : that.dname != null) return false;
         if (dprice != null ? !dprice.equals(that.dprice) : that.dprice != null) return false;
         if (wname != null ? !wname.equals(that.wname) : that.wname != null) return false;
@@ -87,16 +98,7 @@ public class DishViewEntity {
         result = 31 * result + (dprice != null ? dprice.hashCode() : 0);
         result = 31 * result + (int) davailability;
         result = 31 * result + (wname != null ? wname.hashCode() : 0);
+        result = 31 * result + wid;
         return result;
-    }
-
-    @Basic
-    @Column(name = "WID", nullable = false)
-    public int getWid() {
-        return wid;
-    }
-
-    public void setWid(int wid) {
-        this.wid = wid;
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class WorkerService {
@@ -26,9 +27,17 @@ public class WorkerService {
     private OrderViewDao orderViewDao;
     @Autowired
     private OrdersDao ordersDao;
+    @Autowired
+    private RedisService redisService;
 
-    public int workerLogin(String name,String password){
-        return workerDao.wrkLogin(name, password);
+    public String workerLogin(String name,String password){
+        if(workerDao.wrkLogin(name, password)==1){
+            String token = UUID.randomUUID().toString();
+            redisService.set(token, name);
+            return token;
+        }
+        else
+            return "";
     }
 
     public WorkerViewEntity getWorkerInfo(int wid){
@@ -106,5 +115,9 @@ public class WorkerService {
             throw new Exception("notice error");
         }
         return 1;
+    }
+
+    public List<WorkerViewEntity> getWindowByCanteen(int cid){
+        return workerViewDao.findByCid(cid);
     }
 }

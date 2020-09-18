@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class RiderService {
@@ -24,9 +25,17 @@ public class RiderService {
     private OrdersDao ordersDao;
     @Autowired
     private OrderNoticeDao orderNoticeDao;
+    @Autowired
+    private RedisService redisService;
 
-    public int riderLogin(String name,String password){
-        return riderDao.riderLogin(name, password);
+    public String riderLogin(String name,String password){
+        if(riderDao.riderLogin(name, password)==1){
+            String token = UUID.randomUUID().toString();
+            redisService.set(token, name);
+            return token;
+        }
+        else
+            return "";
     }
 
     public RiderViewEntity getRiderInfo(int rid){

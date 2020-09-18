@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface StudentDAO extends JpaRepository<StudentEntity,Long> {
-    @Query(value="SELECT SID FROM student WHERE SNAME=?1 AND SPASSWORD=?2 AND ISDELETE=0",nativeQuery=true)
+    @Query(value="SELECT SID FROM student WHERE SID=?1 AND SPASSWORD=?2 AND ISDELETE=0",nativeQuery=true)
     int stuLogin(String name,String password);
 
     @Modifying

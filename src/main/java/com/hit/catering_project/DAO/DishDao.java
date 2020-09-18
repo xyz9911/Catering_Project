@@ -32,4 +32,7 @@ public interface DishDao extends JpaRepository<DishEntity,Long> {
     @Modifying
     @Query(value="UPDATE dish SET ISDELETE=1 WHERE DID=?1",nativeQuery=true)
     int deleteDish(int did);
+
+    DishEntity findByDid(int did);
+
 }

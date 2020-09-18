@@ -17,9 +17,9 @@ public class OrdersViewEntity {
     private int wid;
     private Integer rid;
 
-    @Id
     @Basic
-    @Column(name = "OID", nullable = false)
+    @Id
+    @Column(name = "OID")
     public int getOid() {
         return oid;
     }
@@ -29,7 +29,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "ODATE", nullable = false)
+    @Column(name = "ODATE")
     public Timestamp getOdate() {
         return odate;
     }
@@ -39,7 +39,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "OPRICE", nullable = false, precision = 2)
+    @Column(name = "OPRICE")
     public BigDecimal getOprice() {
         return oprice;
     }
@@ -49,7 +49,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "RNAME", nullable = false, length = 255)
+    @Column(name = "RNAME")
     public String getRname() {
         return rname;
     }
@@ -59,7 +59,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "SNAME", nullable = false, length = 255)
+    @Column(name = "SNAME")
     public String getSname() {
         return sname;
     }
@@ -69,7 +69,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "WNAME", nullable = false, length = 255)
+    @Column(name = "WNAME")
     public String getWname() {
         return wname;
     }
@@ -79,7 +79,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "SID", nullable = false)
+    @Column(name = "SID")
     public int getSid() {
         return sid;
     }
@@ -89,7 +89,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "WID", nullable = false)
+    @Column(name = "WID")
     public int getWid() {
         return wid;
     }
@@ -99,7 +99,7 @@ public class OrdersViewEntity {
     }
 
     @Basic
-    @Column(name = "RID", nullable = true)
+    @Column(name = "RID")
     public Integer getRid() {
         return rid;
     }

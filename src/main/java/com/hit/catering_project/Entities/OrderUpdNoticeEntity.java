@@ -7,14 +7,14 @@ import java.sql.Timestamp;
 @Table(name = "order_upd_notice", schema = "catering_system", catalog = "")
 public class OrderUpdNoticeEntity {
     private int nid;
+    private int oid;
     private String ncontent;
     private byte isread;
     private Timestamp ndate;
     private byte wisread;
-    private int oid;
 
     @Id
-    @Column(name = "NID", nullable = false)
+    @Column(name = "NID")
     public int getNid() {
         return nid;
     }
@@ -24,7 +24,17 @@ public class OrderUpdNoticeEntity {
     }
 
     @Basic
-    @Column(name = "NCONTENT", nullable = false, length = 255)
+    @Column(name = "OID")
+    public int getOid() {
+        return oid;
+    }
+
+    public void setOid(int oid) {
+        this.oid = oid;
+    }
+
+    @Basic
+    @Column(name = "NCONTENT")
     public String getNcontent() {
         return ncontent;
     }
@@ -34,7 +44,7 @@ public class OrderUpdNoticeEntity {
     }
 
     @Basic
-    @Column(name = "ISREAD", nullable = false)
+    @Column(name = "ISREAD")
     public byte getIsread() {
         return isread;
     }
@@ -44,7 +54,7 @@ public class OrderUpdNoticeEntity {
     }
 
     @Basic
-    @Column(name = "NDATE", nullable = false)
+    @Column(name = "NDATE")
     public Timestamp getNdate() {
         return ndate;
     }
@@ -54,7 +64,7 @@ public class OrderUpdNoticeEntity {
     }
 
     @Basic
-    @Column(name = "WISREAD", nullable = false)
+    @Column(name = "WISREAD")
     public byte getWisread() {
         return wisread;
     }
@@ -71,6 +81,7 @@ public class OrderUpdNoticeEntity {
         OrderUpdNoticeEntity that = (OrderUpdNoticeEntity) o;
 
         if (nid != that.nid) return false;
+        if (oid != that.oid) return false;
         if (isread != that.isread) return false;
         if (wisread != that.wisread) return false;
         if (ncontent != null ? !ncontent.equals(that.ncontent) : that.ncontent != null) return false;
@@ -82,20 +93,11 @@ public class OrderUpdNoticeEntity {
     @Override
     public int hashCode() {
         int result = nid;
+        result = 31 * result + oid;
         result = 31 * result + (ncontent != null ? ncontent.hashCode() : 0);
         result = 31 * result + (int) isread;
         result = 31 * result + (ndate != null ? ndate.hashCode() : 0);
         result = 31 * result + (int) wisread;
         return result;
-    }
-
-    @Basic
-    @Column(name = "OID", nullable = false)
-    public int getOid() {
-        return oid;
-    }
-
-    public void setOid(int oid) {
-        this.oid = oid;
     }
 }

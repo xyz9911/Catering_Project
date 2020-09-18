@@ -11,7 +11,7 @@ public class NewDishNoticeEntity {
     private Timestamp ndate;
 
     @Id
-    @Column(name = "NID", nullable = false)
+    @Column(name = "NID")
     public int getNid() {
         return nid;
     }
@@ -21,7 +21,7 @@ public class NewDishNoticeEntity {
     }
 
     @Basic
-    @Column(name = "NCONTENT", nullable = false, length = 255)
+    @Column(name = "NCONTENT")
     public String getNcontent() {
         return ncontent;
     }
@@ -31,7 +31,7 @@ public class NewDishNoticeEntity {
     }
 
     @Basic
-    @Column(name = "NDATE", nullable = false)
+    @Column(name = "NDATE")
     public Timestamp getNdate() {
         return ndate;
     }

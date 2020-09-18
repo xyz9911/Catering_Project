@@ -8,16 +8,16 @@ import java.sql.Timestamp;
 @Table(name = "orders", schema = "catering_system", catalog = "")
 public class OrdersEntity {
     private int oid;
+    private int sid;
+    private int wid;
+    private Integer rid;
     private Timestamp odate;
     private BigDecimal oprice;
     private byte istaken;
     private byte iscanceled;
-    private int sid;
-    private int wid;
-    private Integer rid;
 
     @Id
-    @Column(name = "OID", nullable = false)
+    @Column(name = "OID")
     public int getOid() {
         return oid;
     }
@@ -27,7 +27,37 @@ public class OrdersEntity {
     }
 
     @Basic
-    @Column(name = "ODATE", nullable = false)
+    @Column(name = "SID")
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    @Basic
+    @Column(name = "WID")
+    public int getWid() {
+        return wid;
+    }
+
+    public void setWid(int wid) {
+        this.wid = wid;
+    }
+
+    @Basic
+    @Column(name = "RID")
+    public Integer getRid() {
+        return rid;
+    }
+
+    public void setRid(Integer rid) {
+        this.rid = rid;
+    }
+
+    @Basic
+    @Column(name = "ODATE")
     public Timestamp getOdate() {
         return odate;
     }
@@ -37,7 +67,7 @@ public class OrdersEntity {
     }
 
     @Basic
-    @Column(name = "OPRICE", nullable = false, precision = 2)
+    @Column(name = "OPRICE")
     public BigDecimal getOprice() {
         return oprice;
     }
@@ -47,7 +77,7 @@ public class OrdersEntity {
     }
 
     @Basic
-    @Column(name = "ISTAKEN", nullable = false)
+    @Column(name = "ISTAKEN")
     public byte getIstaken() {
         return istaken;
     }
@@ -57,7 +87,7 @@ public class OrdersEntity {
     }
 
     @Basic
-    @Column(name = "ISCANCELED", nullable = false)
+    @Column(name = "ISCANCELED")
     public byte getIscanceled() {
         return iscanceled;
     }
@@ -74,8 +104,11 @@ public class OrdersEntity {
         OrdersEntity that = (OrdersEntity) o;
 
         if (oid != that.oid) return false;
+        if (sid != that.sid) return false;
+        if (wid != that.wid) return false;
         if (istaken != that.istaken) return false;
         if (iscanceled != that.iscanceled) return false;
+        if (rid != null ? !rid.equals(that.rid) : that.rid != null) return false;
         if (odate != null ? !odate.equals(that.odate) : that.odate != null) return false;
         if (oprice != null ? !oprice.equals(that.oprice) : that.oprice != null) return false;
 
@@ -85,40 +118,13 @@ public class OrdersEntity {
     @Override
     public int hashCode() {
         int result = oid;
+        result = 31 * result + sid;
+        result = 31 * result + wid;
+        result = 31 * result + (rid != null ? rid.hashCode() : 0);
         result = 31 * result + (odate != null ? odate.hashCode() : 0);
         result = 31 * result + (oprice != null ? oprice.hashCode() : 0);
         result = 31 * result + (int) istaken;
         result = 31 * result + (int) iscanceled;
         return result;
-    }
-
-    @Basic
-    @Column(name = "SID", nullable = false)
-    public int getSid() {
-        return sid;
-    }
-
-    public void setSid(int sid) {
-        this.sid = sid;
-    }
-
-    @Basic
-    @Column(name = "WID", nullable = false)
-    public int getWid() {
-        return wid;
-    }
-
-    public void setWid(int wid) {
-        this.wid = wid;
-    }
-
-    @Basic
-    @Column(name = "RID", nullable = true)
-    public Integer getRid() {
-        return rid;
-    }
-
-    public void setRid(Integer rid) {
-        this.rid = rid;
     }
 }

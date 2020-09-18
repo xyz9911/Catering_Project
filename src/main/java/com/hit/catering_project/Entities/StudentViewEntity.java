@@ -12,9 +12,9 @@ public class StudentViewEntity {
     private String saddress;
     private String scontact;
 
-    @Id
     @Basic
-    @Column(name = "SID", nullable = false)
+    @Id
+    @Column(name = "SID")
     public int getSid() {
         return sid;
     }
@@ -24,7 +24,7 @@ public class StudentViewEntity {
     }
 
     @Basic
-    @Column(name = "SNAME", nullable = false, length = 255)
+    @Column(name = "SNAME")
     public String getSname() {
         return sname;
     }
@@ -34,7 +34,7 @@ public class StudentViewEntity {
     }
 
     @Basic
-    @Column(name = "SBALANCE", nullable = false, precision = 2)
+    @Column(name = "SBALANCE")
     public BigDecimal getSbalance() {
         return sbalance;
     }
@@ -44,7 +44,7 @@ public class StudentViewEntity {
     }
 
     @Basic
-    @Column(name = "SADDRESS", nullable = false, length = 255)
+    @Column(name = "SADDRESS")
     public String getSaddress() {
         return saddress;
     }
@@ -54,7 +54,7 @@ public class StudentViewEntity {
     }
 
     @Basic
-    @Column(name = "SCONTACT", nullable = false, length = 255)
+    @Column(name = "SCONTACT")
     public String getScontact() {
         return scontact;
     }
